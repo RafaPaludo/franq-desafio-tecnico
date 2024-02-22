@@ -1,13 +1,10 @@
-import Api from '@/services/Api'
+import Api from './Api'
 
 export default {
   register (credentials) {
     return Api().post('register', credentials)
+  },
+  login (credentials) {
+    return Api().post('login', credentials)
   }
 }
-
-// Como usar
-// AuthenticationService.register({
-//   email: 'rafael@gmail.com',
-//   password: '1234'
-// })

@@ -51,6 +51,7 @@
 <script setup>
 import { ref } from 'vue'
 import AuthenticationService from '@/services/AuthenticationService'
+import { useUserAuth } from '@/stores/user'
 
 const valid = ref(false)
 const name = ref('')
@@ -91,6 +92,7 @@ const passwordRules = [
 
 const errorMessage = ref('')
 const successMessage = ref('')
+const userAuth = useUserAuth()
 
 /*
   This function register a new user in the backend.
@@ -103,9 +105,15 @@ function registerUser () {
   })
   .then(response => {
     successMessage.value = response?.data?.message
+    logUser()
   })
   .catch(error => {
     errorMessage.value = error?.response?.data?.message
   })
 }
+
+function logUser () {
+  userAuth.user = { name, email }
+}
+
 </script>

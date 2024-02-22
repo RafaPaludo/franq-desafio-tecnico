@@ -4,8 +4,8 @@
       v-model="tab"
       bg-color="primary"
     >
-      <v-tab value="one">Item One</v-tab>
-      <v-tab value="two">Item Two</v-tab>
+      <v-tab value="one">Login</v-tab>
+      <v-tab value="two">Sign In</v-tab>
     </v-tabs>
 
     <v-card-text>

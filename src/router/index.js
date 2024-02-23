@@ -6,8 +6,7 @@ const routes = [
   {
     path: '/',
     name: 'Hello',
-    component: Hello,
-    meta: { requiresAtuh: true }
+    component: Hello
   },
   {
     path: '/login',
@@ -21,17 +20,11 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach(async (to, from, next) => {
-  if (to.meta.requiresAtuh) {
-    const isAuthenticated = localStorage.getItem('user')
+router.beforeEach((to, from) => {
+  const isAuthenticated = localStorage.getItem('user')
 
-    if(!isAuthenticated) {
-      next('/login')
-    } else {
-      next()
-    }
-  } else {
-    next()
+  if (!isAuthenticated && to.name !== 'Login') {
+    return { name: 'Login' }
   }
 })
 

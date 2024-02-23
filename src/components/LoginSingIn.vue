@@ -37,6 +37,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import AuthenticationService from '@/services/AuthenticationService'
 import { useUserAuth } from '@/stores/user'
 
@@ -47,6 +48,8 @@ const successMessage = ref('')
 const errorMessage = ref('')
 const rules = []
 const userAuth = useUserAuth()
+const router = useRouter()
+const route = useRoute()
 
 function loginUser () {
   AuthenticationService.login({
@@ -64,5 +67,6 @@ function loginUser () {
 
 function logUser () {
   userAuth.user = { email }
+  router.push('/')
 }
 </script>

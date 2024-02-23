@@ -1,8 +1,8 @@
 <template>
   <v-app>
     <v-main>
-      <router-link to="/">Home</router-link>
-      <router-link to="/login">Login</router-link>
+      <!-- <router-link to="/">Home</router-link>
+      <router-link to="/login">Login</router-link> -->
       <router-view></router-view>
     </v-main>
   </v-app>
@@ -136,3 +136,10 @@ onMounted(() => {
   fetchData()
 })
 </script>
+
+<style lang="scss">
+.v-main {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+</style>

@@ -38,6 +38,7 @@
 <script setup>
 import { ref } from 'vue'
 import AuthenticationService from '@/services/AuthenticationService'
+import { useUserAuth } from '@/stores/user'
 
 const valid = ref(false)
 const password = ref('')
@@ -45,6 +46,7 @@ const email = ref('')
 const successMessage = ref('')
 const errorMessage = ref('')
 const rules = []
+const userAuth = useUserAuth()
 
 function loginUser () {
   AuthenticationService.login({
@@ -53,9 +55,14 @@ function loginUser () {
   })
   .then(response => {
     successMessage.value = response?.data?.message
+    logUser()
   })
   .catch(error => {
     errorMessage.value = error?.response?.data?.message
   })
+}
+
+function logUser () {
+  userAuth.user = { email }
 }
 </script>

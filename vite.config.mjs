@@ -26,6 +26,16 @@ export default defineConfig({
       },
     }),
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @import "./src/styles/_normalize.scss";
+          @import "./src/styles/_variables.scss";
+        `
+      }
+    }
+  },
   define: { 'process.env': {} },
   resolve: {
     alias: {

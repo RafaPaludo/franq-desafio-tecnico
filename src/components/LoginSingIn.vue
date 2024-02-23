@@ -67,6 +67,9 @@ function loginUser () {
 
 function logUser () {
   userAuth.user = { email }
-  router.push('/')
+  
+  setTimeout(() => {
+    router.push('/')
+  }, 1500)
 }
 </script>

@@ -116,8 +116,11 @@ function registerUser () {
 }
 
 function logUser () {
-  userAuth.user = { name, email }
-  router.push('/')
+  userAuth.user = { email }
+
+  setTimeout(() => {
+    router.push('/')
+  }, 1500)
 }
 
 </script>

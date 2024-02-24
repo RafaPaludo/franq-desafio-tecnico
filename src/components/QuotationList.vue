@@ -1,5 +1,5 @@
 <template>
-<v-container>
+<v-container class="quotation-container">
   <h2 class="quatation-header">{{ quotationType }}</h2>
 
   <v-row no-gutters>

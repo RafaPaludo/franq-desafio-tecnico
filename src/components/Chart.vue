@@ -101,3 +101,19 @@ function handleClick () {
   }
 }
 </script>
+
+<style lang="scss">
+.chart {
+  width: 100%;
+  max-width: 400px;
+  margin: 0;
+  padding: 5rem 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .chart {
+    max-width: none;
+    padding: 1rem 0;
+  }
+}
+</style>

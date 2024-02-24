@@ -85,8 +85,4 @@ const tab = ref(null)
   border: 1px solid #cdcdcd;
   border-top: none;
 }
-
-.v-container {
-  padding: 0;
-}
 </style>

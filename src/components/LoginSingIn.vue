@@ -1,38 +1,42 @@
 <template>
     <v-form v-model="valid" @submit.prevent="loginUser">
-    <v-container>
-      <v-row>
-        <v-col
-          cols="12"
-          md="12"
-        >
-          <v-text-field
-            v-model="email"
-            label="E-mail"
-            :rules="rules"
-            required
-          ></v-text-field>
-        </v-col>
+      <v-container>
+        <v-row>
+          <v-col
+            cols="12"
+            md="12"
+          >
+            <v-text-field
+              v-model="email"
+              label="E-mail"
+              :rules="rules"
+              required
+            ></v-text-field>
+          </v-col>
 
-        <v-col
-          cols="12"
-          md="12"
-        >
-          <v-text-field
-            v-model="password"
-            type="password"
-            :rules="rules"
-            label="Senha"
-            required
-          ></v-text-field>
-        </v-col>
-      </v-row>
-    </v-container>
+          <v-col
+            cols="12"
+            md="12"
+          >
+            <v-text-field
+              v-model="password"
+              type="password"
+              :rules="rules"
+              label="Senha"
+              required
+            ></v-text-field>
+          </v-col>
+        </v-row>
+      </v-container>
 
-    <v-btn type="submit" block class="mt-2">Login</v-btn>
-  </v-form>
-
-  {{ successMessage }} {{ errorMessage }}
+      <v-btn type="submit" block class="mt-2" color="primary">Login</v-btn>
+    </v-form>
+    <v-alert
+      v-if="errorMessage"
+      color="error"
+      icon="$error"
+      :text="errorMessage"
+    ></v-alert>
 </template>
 
 <script setup>
@@ -61,15 +65,15 @@ function loginUser () {
   })
   .then(response => {
     successMessage.value = response?.data?.message
-    logUser()
+    logUser(response?.data?.user)
   })
   .catch(error => {
     errorMessage.value = error?.response?.data?.message
   })
 }
 
-function logUser () {
-  userAuth.user = { email }
+function logUser ({ email, name }) {
+  userAuth.user = { email, name }
   chart.setInitialDate()
   
   setTimeout(() => {
@@ -77,3 +81,9 @@ function logUser () {
   }, 1500)
 }
 </script>
+
+<style lang="scss">
+.v-alert {
+  margin: 2rem 0;
+}
+</style>

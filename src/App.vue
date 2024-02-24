@@ -138,8 +138,8 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-.v-main {
-  display: grid;
-  // grid-template-columns: 200px 1fr;
+div.v-application__wrap {
+  max-width: 90rem;
+  margin: 0 auto;
 }
 </style>

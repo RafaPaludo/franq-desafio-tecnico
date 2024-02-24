@@ -4,7 +4,7 @@
       <v-row>
         <v-col
           cols="12"
-          md="4"
+          md="12"
         >
           <v-text-field
             v-model="name"
@@ -16,7 +16,7 @@
 
         <v-col
           cols="12"
-          md="4"
+          md="12"
         >
           <v-text-field
             v-model="email"
@@ -28,7 +28,7 @@
 
         <v-col
           cols="12"
-          md="4"
+          md="12"
         >
           <v-text-field
             v-model="password"
@@ -41,11 +41,22 @@
       </v-row>
     </v-container>
 
-    <v-btn type="submit" block class="mt-2">Registrar</v-btn>
+    <v-btn type="submit" block class="mt-2" color="primary">Registrar</v-btn>
   </v-form>
 
-  {{ errorMessage }}
-  {{ successMessage }}
+  <v-alert
+    v-if="errorMessage"
+    color="warning"
+    icon="$warning"
+    :text="errorMessage"
+  />
+  <v-alert
+    v-if="successMessage"
+    color="success"
+    icon="$success"
+    :text="successMessage"
+  />
+
 </template>
 
 <script setup>
@@ -108,15 +119,17 @@ function registerUser () {
   })
   .then(response => {
     successMessage.value = response?.data?.message
-    logUser()
+    console.log(response?.data?.user)
+    logUser(response?.data?.user)
   })
   .catch(error => {
     errorMessage.value = error?.response?.data?.message
   })
 }
 
-function logUser () {
-  userAuth.user = { email }
+function logUser ({ email, name }) {
+  console.log('adasdasdasd')
+  userAuth.user = { email, name }
 
   setTimeout(() => {
     router.push('/')

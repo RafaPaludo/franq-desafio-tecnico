@@ -27,6 +27,7 @@
         v-for="(quotation, quotationLabel, index) in results"
         :value="'option-' + index"
         :key="index"
+        class="container"
       > 
         <v-container>
           <h2 class="quatation-header">{{ quotationLabel }}</h2>
@@ -38,6 +39,11 @@
             />
           </v-row>
         </v-container>
+        <v-row
+          class="grafico"
+        >
+          Gráfico
+        </v-row>
       </v-window-item>
     </v-window>
   </section>
@@ -78,6 +84,15 @@ console.log(results)
 
 .quatation-header {
   text-transform: capitalize;
+}
+
+.container {
+  display: flex;
+}
+
+.grafico {
+  flex-basis: 40%;
+  margin: 0;
 }
 
 </style>

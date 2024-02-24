@@ -24,7 +24,19 @@
         >
           <div class="buy"><span>{{ formatCurrency(val.buy) }}</span> Compra</div>
           <div class="sell"><span>{{ formatCurrency(val.sell) }}</span> Venda</div>
-          <div class="variation"><span>{{ val.variation }}</span> variação</div>
+          <div class="variation">
+            <span
+              :class="variationPositive(val.variation) ? 'good': 'bad'"
+            >
+              {{ val.variation }}
+              <v-icon
+                size="x-small"
+                end
+                :icon="variationPositive(val.variation) ? 'mdi mdi-trending-up' : 'mdi mdi-trending-down'"
+              ></v-icon>
+            </span> variação
+            
+          </div>
         </v-card-text>
 
         <v-card-text
@@ -33,7 +45,19 @@
         >
           <div class="location">{{ val.location }}</div>
           <div class="points"><span>{{ val.points }}</span> pontos</div>
-          <div class="variation"><span>{{ val.variation }}</span> variação</div>
+          <div class="variation">
+            <span
+              :class="variationPositive(val.variation) ? 'good': 'bad'"
+            >
+              {{ val.variation }}
+              <v-icon
+                size="x-small"
+                end
+                :icon="variationPositive(val.variation) ? 'mdi mdi-trending-up' : 'mdi mdi-trending-down'"
+              ></v-icon>
+            </span> variação
+            
+          </div>
         </v-card-text>
 
         <v-card-text
@@ -42,7 +66,19 @@
         >
           <div class="buy"><span>{{ formatCurrency(val.buy, val.format[0]) }}</span> Compra</div>
           <div class="sell"><span>{{ formatCurrency(val.sell, val.format[0]) }}</span> Venda</div>
-          <div class="variation"><span>{{ val.variation }}</span> variação</div>
+          <div class="variation">
+            <span
+              :class="variationPositive(val.variation) ? 'good': 'bad'"
+            >
+              {{ val.variation }}
+              <v-icon
+                size="x-small"
+                end
+                :icon="variationPositive(val.variation) ? 'mdi mdi-trending-up' : 'mdi mdi-trending-down'"
+              ></v-icon>
+            </span> variação
+            
+          </div>
         </v-card-text>
       </v-card>
     </v-sheet>
@@ -75,6 +111,14 @@ function formatCurrency (number, currency = 'BRL') {
 
   return number?.toLocaleString('pt-br',{ style: 'currency', currency })
 }
+
+function variationPositive (number) {
+  if (number > 0) {
+    return true
+  } else {
+    return false
+  }
+}
 </script>
 
 <style lang="scss">
@@ -103,16 +147,29 @@ function formatCurrency (number, currency = 'BRL') {
 .sell {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   color: #434343;
+
 
   span {
     font-weight: 700;
     font-size: 1.5rem;
     color: $main-color;
     padding: .2rem 0;
+
+    &.bad {
+      color: red;
+    }
+
+    &.good {
+      color: green;
+    }
   }
 }
 
+.variation {
+  align-self: flex-end;
+}
 
 .location {
   color: #434343;

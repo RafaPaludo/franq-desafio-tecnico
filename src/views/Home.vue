@@ -24,21 +24,18 @@
   <section class="content">
     <v-window v-model="tab">
       <v-window-item
-        v-for="(quotation, quotationLabel, index) in results"
+        v-for="(quotationList, quotationType, index) in results"
         :value="'option-' + index"
         :key="index"
         class="container"
-      > 
-        <v-container>
-          <h2 class="quatation-header">{{ quotationLabel }}</h2>
+      >
+        <!-- Cards de Cotações -->
+        <QuotationList 
+          :quotationList="quotationList"
+          :quotationType="quotationType"
+        />
 
-          <v-row no-gutters>
-            <QuotationCard
-              :quotation="quotation"
-              :quotationLabel="quotationLabel"
-            />
-          </v-row>
-        </v-container>
+        <!-- Gráfico -->
         <v-row
           class="grafico"
         >
@@ -63,7 +60,7 @@ delete data.results.available_sources
 delete data.results.taxes
 const resultNames = Object.keys(data.results)
 const results = data.results
-console.log(results)
+
 </script>
 
 <style lang="scss">

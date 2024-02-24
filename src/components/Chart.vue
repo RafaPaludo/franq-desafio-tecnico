@@ -1,11 +1,24 @@
 <template>
-  <apexchart type="area" height="350" :options="chartOptions" :series="series"></apexchart>
+  <apexchart
+    ref="apexChart"
+    type="area"
+    height="350"
+    :options="chartOptions"
+    :series="series"
+    @click="handleClick"
+  >
+  </apexchart>
 </template>
 
 <script setup>
-import VueApexCharts from 'vue3-apexcharts'
+import { ref } from 'vue';
+import { useChart } from '@/stores/chart'
+import { onMounted } from 'vue';
 
-const chartOptions = {
+// Data
+const chart = useChart()
+const apexChart = ref(null)
+const chartOptions = ref({
   chart: {
     type: 'area',
     stacked: false,
@@ -35,16 +48,56 @@ const chartOptions = {
       },
     },
     title: {
-      text: 'Price'
+      text: 'Pontos'
     },
   },
   xaxis: {
-    type: 'datetime',
+    labels: {
+      formatter: function (val) {
+        return val + 'h'
+      }
+    }
+  }
+})
+
+const series = ref([{
+  name: 'Pontos',
+  data: [
+    [10, 0],
+    [11, 0],
+    [12, 0],
+    [13, 0],
+    [14, 0],
+    [15, 0],
+    [16, 0],
+    [17, 0]]
+}])
+
+function handleClick () {
+  const initialData = chart.initialData
+  const data = chart.data
+  const info = data.buy || data.points  
+
+  if (chart.data) {
+    const series =  [{
+      data: [
+        [initialData, info],
+        [initialData + 1, 0],
+        [initialData + 2, 0],
+        [initialData + 3, 0],
+        [initialData + 4, 0],
+        [initialData + 5, 0],
+        [initialData + 6, 0],
+        [initialData + 7, 0]
+      ]
+    }]
+
+    apexChart.value.updateOptions({
+      series,
+      title: {
+        text: chart.data.name
+      },
+    });
   }
 }
-
-const series =  [{
-  name: '',
-  data: [[1, 34], [3.8, 43], [5, 31] , [10, 43], [13, 33], [15, 43], [18, 33] , [20, 52]]
-}]
 </script>

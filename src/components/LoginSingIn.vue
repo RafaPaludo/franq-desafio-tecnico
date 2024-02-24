@@ -40,7 +40,10 @@ import { ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import AuthenticationService from '@/services/AuthenticationService'
 import { useUserAuth } from '@/stores/user'
+import { useChart } from '@/stores/chart'
 
+// Data
+const chart = useChart()
 const valid = ref(false)
 const password = ref('')
 const email = ref('')
@@ -67,6 +70,7 @@ function loginUser () {
 
 function logUser () {
   userAuth.user = { email }
+  chart.setInitialDate()
   
   setTimeout(() => {
     router.push('/')

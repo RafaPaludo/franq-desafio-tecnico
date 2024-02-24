@@ -8,7 +8,7 @@
 
       <v-tabs
         v-model="tab"
-        direction="vertical"
+        align-tabs="center"
         color="primary"
       >
         <v-tab 
@@ -42,7 +42,7 @@
         <v-row
           class="grafico"
         >
-          Gráfico
+          <Chart />
         </v-row>
       </v-window-item>
     </v-window>
@@ -91,7 +91,7 @@ console.log(results)
 }
 
 .grafico {
-  flex-basis: 40%;
+  flex-basis: 50%;
   margin: 0;
 }
 

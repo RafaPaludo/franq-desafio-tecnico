@@ -7,6 +7,7 @@
 // Plugins
 import { registerPlugins } from '@/plugins'
 import { createPinia } from 'pinia'
+import VueApexCharts from "vue3-apexcharts";
 
 // Components
 import App from './App.vue'
@@ -23,4 +24,5 @@ registerPlugins(app)
 app
   .use(router)
   .use(pinia)
+  .use(VueApexCharts)
   .mount('#app')

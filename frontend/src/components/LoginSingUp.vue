@@ -119,7 +119,6 @@ function registerUser () {
   })
   .then(response => {
     successMessage.value = response?.data?.message
-    console.log(response?.data?.user)
     logUser(response?.data?.user)
   })
   .catch(error => {
@@ -128,7 +127,6 @@ function registerUser () {
 }
 
 function logUser ({ email, name }) {
-  console.log('adasdasdasd')
   userAuth.user = { email, name }
 
   setTimeout(() => {

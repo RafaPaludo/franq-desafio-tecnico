@@ -16,5 +16,10 @@ export const useUserAuth = defineStore('userAuth', () => {
     user.value = JSON.parse(localStorage.getItem('user'))
   }
 
-  return { user }
+  function loginOut () {
+    localStorage.clear()
+    window.location.reload()
+  }
+
+  return { user, loginOut }
 })

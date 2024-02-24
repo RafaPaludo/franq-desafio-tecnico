@@ -1,27 +1,21 @@
 <template>
-  <aside class="aside">
-      <img 
-        :src="Logo"
-        alt="Logo Franq"
-        class="logo"
-      >
+  <Header />
 
-      <v-tabs
+  <section class="content">
+    <v-tabs
         v-model="tab"
         align-tabs="center"
         color="primary"
       >
-        <v-tab 
-          v-for="(quote, idx) in resultNames"
-          :value="'option-' + idx"
-          key="idx">
-          <p></p>
-          {{ quote }}
-        </v-tab>
-      </v-tabs>
-  </aside>
+      <v-tab 
+        v-for="(quote, idx) in resultNames"
+        :value="'option-' + idx"
+        key="idx">
+        <p></p>
+        {{ quote }}
+      </v-tab>
+    </v-tabs>
 
-  <section class="content">
     <v-window v-model="tab">
       <v-window-item
         v-for="(quotationList, quotationType, index) in results"
@@ -35,9 +29,9 @@
           :quotationType="quotationType"
         />
 
-        <!-- Gráfico -->
+        <!-- chart -->
         <v-row
-          class="grafico"
+          class="chart"
         >
           <Chart />
         </v-row>
@@ -64,32 +58,21 @@ const results = data.results
 </script>
 
 <style lang="scss">
-.aside {
-  padding: 2rem 1rem;
-  border-radius: 0 1rem 1rem 0;
-  box-shadow: 0px 0px 24px rgba(0,0,0,.4);
-}
-
-.logo {
-  max-width: 150px;
-  margin-bottom: 2rem;
-}
-
 .content {
-  padding: 2rem 1rem;
+  padding: 3rem 2rem;
 }
 
 .quatation-header {
   text-transform: capitalize;
+  padding-bottom: 1rem;
 }
 
 .container {
   display: flex;
 }
 
-.grafico {
-  flex-basis: 50%;
+.chart {
   margin: 0;
+  padding: 5rem 0;
 }
-
 </style>

@@ -5,7 +5,6 @@
     height="350"
     :options="chartOptions"
     :series="series"
-    @click="handleClick"
   >
   </apexchart>
 </template>
@@ -13,7 +12,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useChart } from '@/stores/chart'
-import { onMounted } from 'vue';
+import { watch } from 'vue';
 
 // Data
 const chart = useChart()
@@ -73,12 +72,13 @@ const series = ref([{
     [17, 0]]
 }])
 
+// Methods
 function handleClick () {
   const initialData = chart.initialData
   const data = chart.data
   const info = data.buy || data.points  
 
-  if (chart.data) {
+  if (apexChart.value && chart.data) {
     const series =  [{
       data: [
         [initialData, info],
@@ -100,6 +100,14 @@ function handleClick () {
     });
   }
 }
+
+// Watchers
+watch(
+  () => chart.data,
+  (chart, prevChart) => {
+    handleClick()
+  }
+)
 </script>
 
 <style lang="scss">

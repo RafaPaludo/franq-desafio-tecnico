@@ -1,0 +1,3 @@
+[submodule "franq-server"]
+	path = franq-server
+	url = https://github.com/RafaPaludo/franq-desafio-tecnico-server

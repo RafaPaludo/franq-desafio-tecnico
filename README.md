@@ -14,6 +14,8 @@ Este projeto é um monorepositório, composto por uma aplicação frontend utili
 
 ## Instalação Local com Node.js
 
+Certifique-se de ter o Node.js instalado em sua máquina. Você pode baixá-lo em [nodejs.org](https://nodejs.org/).
+
 1. Clone o repositório:
    ```bash
    git clone https://github.com/RafaPaludo/franq-desafio-tecnico.git
@@ -34,55 +36,75 @@ Este projeto é um monorepositório, composto por uma aplicação frontend utili
 
 Você pode acessar a aplicação em http://localhost:3000.
 
-   
+----
 
+## Instalação com Docker
 
-
-
-
-
-
-
-
-## Configuração
-
-Certifique-se de ter o Node.js instalado em sua máquina. Você pode baixá-lo em [nodejs.org](https://nodejs.org/).
+Certifique-se de ter o Docker instalado em sua máquina. Você pode baixá-lo em docker.com.
 
 1. Clone o repositório:
-
    ```bash
-   git clone https://github.com/RafaPaludo/franq-desafio-tecnico-server.git
-   cd franq-desafio-tecnico-server
+   git clone https://github.com/RafaPaludo/franq-desafio-tecnico.git
+   cd franq-desafio-tecnico
 
-2. Instale as dependências:
-   ```bash
-   npm install
-
-3. Para iniciar o servidor proxy, execute o seguinte comando:
-   ```bash
-   npm start
-
-Isso iniciará o servidor na porta padrão 3001. Você pode acessar o servidor proxy em http://localhost:3001/api/finance para listar as cotações da api.
-
-### Rodando com Docker
-
-Se preferir, você também pode executar o projeto usando Docker. Certifique-se de ter o Docker instalado em sua máquina. Você pode baixá-lo em [docker.com](https://www.docker.com/).
-
-1. Clone o repositório:
-
-   ```bash
-   git clone https://github.com/RafaPaludo/franq-desafio-tecnico-server.git
-   cd franq-desafio-tecnico-server
-
-2. Construa a imagem do Docker:
+2. Faça o build do servidor:
     ```bash
-    docker build -t franq-desafio-tecnico-server .
+    cd franq-server
+    docker build -t franq-server .
 
-3. Execute o contêiner Docker:
-     ```bash
-     docker run -p 3001:3001 franq-desafio-tecnico-server
+3. Faça o build do frontend:
+    ```bash
+    cd ../franq-frontend
+    docker build -t franq-frontend .
 
-Isso iniciará o servidor na porta padrão 3001. Você pode acessar o servidor proxy em http://localhost:3001/api/finance para listar as cotações da api.
+4. Suba as duas imagens:
+    ```bash
+    docker run -d -it -p 3000:3000 franq-frontend
+    docker run -d -t -p 3001:3001 franq-server
 
+Você pode acessar a aplicação em http://localhost:3000.
 
+----
+
+## Instalação com Docker
+
+Certifique-se de ter o Docker instalado em sua máquina. Você pode baixá-lo em docker.com.
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/RafaPaludo/franq-desafio-tecnico.git
+   cd franq-desafio-tecnico
+
+2. Faça o build do servidor:
+    ```bash
+    cd franq-server
+    docker build -t franq-server .
+
+3. Faça o build do frontend:
+    ```bash
+    cd ../franq-frontend
+    docker build -t franq-frontend .
+
+4. Suba as duas imagens:
+    ```bash
+    docker run -d -it -p 3000:3000 franq-frontend
+    docker run -d -t -p 3001:3001 franq-server
+
+Você pode acessar a aplicação em http://localhost:3000.
+
+----
+
+## Instalação com Docker Compose
+
+Certifique-se de ter o Docker e o Docker Compose instalados em sua máquina. Você pode baixá-los em docker.com.
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/RafaPaludo/franq-desafio-tecnico.git
+   cd franq-desafio-tecnico
+
+2. Execute o Docker Compose:
+   ```bash
+   docker compose up -d 
    
+Você pode acessar a aplicação em http://localhost:3000.

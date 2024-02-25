@@ -3,6 +3,7 @@
     <v-card
       class="mx-auto"
       variant="outlined"
+      ref="quotationCard"
       hover
       @click="handleClick"
     >
@@ -77,9 +78,11 @@
 
 <script setup>
 import { useChart } from '@/stores/chart'
+import { onMounted, ref } from 'vue';
 
 // Data
 const chart = useChart()
+const quotationCard = ref(null)
 
 // Props
 const props = defineProps({

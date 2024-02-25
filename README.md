@@ -2,7 +2,7 @@
 
 Este é um desafio técnico que tem por finalidade testar minhas habilidades com programação frontend.
 
-O desafio consiste na criação de uma página de login e outra página restrita, esta contendo informações de cotações de ativos na bolsa de valores, utilizando a api [https://hgbrasil.com/status/finance/](https://hgbrasil.com/status/finance/)
+O desafio consiste na criação de uma página de login e outra página restrita, esta contendo informações de cotações de ativos na bolsa de valores, utilizando a api [https://hgbrasil.com/status/finance/](https://hgbrasil.com/status/finance/).
 
 Este projeto é um monorepositório, composto por uma aplicação frontend utilizando Vue 3, Vuetify e Apexcharts e um [servidor de submodulo utilizando Nodejs e Express](https://github.com/RafaPaludo/franq-desafio-tecnico-server/tree/master).
 
@@ -27,11 +27,11 @@ Certifique-se de ter o Node.js instalado em sua máquina. Você pode baixá-lo e
      npm --prefix /franq-frontend install
      npm --prefix /franq-server install
 
-3. Inicie o servidor e o fronted - execute cada comando em uma instância de terminal separada:
+3. Inicie o servidor:
      ```bash
      npm --prefix /franq-server start
 
-4. Abra uma nova instância de terminal e inicie o frontend:
+4. Abra uma nova instância de terminal (CRTL + SHIFT + T) e inicie o frontend:
     ```bash
     npm --prefix /franq-frontend run dev
 
@@ -41,35 +41,7 @@ Você pode acessar a aplicação em http://localhost:3000.
 
 ## Instalação com Docker
 
-Certifique-se de ter o Docker instalado em sua máquina. Você pode baixá-lo em docker.com.
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/RafaPaludo/franq-desafio-tecnico.git
-   cd franq-desafio-tecnico
-
-2. Faça o build do servidor:
-    ```bash
-    cd franq-server
-    docker build -t franq-server .
-
-3. Faça o build do frontend:
-    ```bash
-    cd ../franq-frontend
-    docker build -t franq-frontend .
-
-4. Suba as duas imagens:
-    ```bash
-    docker run -d -it -p 3000:3000 franq-frontend
-    docker run -d -t -p 3001:3001 franq-server
-
-Você pode acessar a aplicação em http://localhost:3000.
-
-----
-
-## Instalação com Docker
-
-Certifique-se de ter o Docker instalado em sua máquina. Você pode baixá-lo em docker.com.
+Certifique-se de ter o Docker instalado em sua máquina. Você pode baixá-lo em [docker.com](https://www.docker.com/).
 
 1. Clone o repositório:
    ```bash

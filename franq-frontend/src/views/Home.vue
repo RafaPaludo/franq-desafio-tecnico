@@ -94,5 +94,9 @@ onMounted(() => {
   .quotation-list-container {
     flex-direction: column-reverse;
   }
+
+  .content {
+    padding: 2rem 1rem;
+  }
 }
 </style>

@@ -10,7 +10,7 @@
 
 <style lang="scss">
 div.v-application__wrap {
-  max-width: 90rem;
+  max-width: 100%;
   margin: 0 auto;
 }
 </style>

@@ -155,6 +155,9 @@ function handleClick () {
   }
 }
 
+.v-card-text {
+  flex-wrap: wrap;
+}
 
 .variation,
 .points,

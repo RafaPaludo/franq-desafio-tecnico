@@ -47,7 +47,7 @@ const tab = ref('option-0')
 
 // Methods
 async function fetchData (url) {
-  axios.get('http://localhost:3001/api/finance')
+  axios.get('http://35.173.236.69:3001/api/finance')
   .then((response) => {
     sanitizeData(response)
   })

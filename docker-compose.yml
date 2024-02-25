@@ -1,10 +1,12 @@
 version: '3'
 services:
   franq-frontend:
+    build: ./frontend
     image: franq-frontend:latest
     ports:
       - 3000:3000
   franq-server:
+    build: ./server
     image: franq-server:latest
     ports:
       - 3001:3001

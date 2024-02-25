@@ -103,6 +103,11 @@ const props = defineProps({
 })
 
 // Methods
+/**
+  * Format price using specific currency.
+  * @param {Number} number - Price.
+  * @param {String} currency - Currency format.
+ */
 function formatCurrency (number, currency = 'BRL') {
   if (!number) {
     return '---'
@@ -111,6 +116,10 @@ function formatCurrency (number, currency = 'BRL') {
   return number?.toLocaleString('pt-br',{ style: 'currency', currency })
 }
 
+/**
+  * Checks if is variation positive.
+  * @param {Number} number - Price.
+ */
 function variationPositive (number) {
   if (number > 0) {
     return true
@@ -119,6 +128,9 @@ function variationPositive (number) {
   }
 }
 
+/**
+  * Handle card click.
+ */
 function handleClick () {
   chart.data = props.quotation
 }

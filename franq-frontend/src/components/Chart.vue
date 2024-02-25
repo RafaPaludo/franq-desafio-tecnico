@@ -58,7 +58,6 @@ const chartOptions = ref({
     }
   }
 })
-
 const series = ref([{
   name: 'Pontos',
   data: [
@@ -73,7 +72,10 @@ const series = ref([{
 }])
 
 // Methods
-function handleClick () {
+/**
+ * Update and refresh chart options.
+ */
+function updateChartOptions () {
   const initialData = chart.initialData
   const data = chart.data
   const info = data.buy || data.points  
@@ -105,7 +107,7 @@ function handleClick () {
 watch(
   () => chart.data,
   (chart, prevChart) => {
-    handleClick()
+    updateChartOptions()
   }
 )
 </script>

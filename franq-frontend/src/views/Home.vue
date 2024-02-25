@@ -46,7 +46,10 @@ const results = ref(null)
 const tab = ref('option-0')
 
 // Methods
-async function fetchData (url) {
+/**
+ * Fetch data from finance api.
+ */
+async function fetchData () {
   axios.get('http://35.173.236.69:3001/api/finance')
   .then((response) => {
     sanitizeData(response)
@@ -56,6 +59,10 @@ async function fetchData (url) {
   });
 }
 
+/**
+ * Fetch data from finance api.
+ * @param {Object} response.data - The api response.
+ */
 function sanitizeData ({ data }) {
   delete data?.results?.available_sources
   delete data?.results?.taxes

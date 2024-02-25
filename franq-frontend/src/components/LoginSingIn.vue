@@ -58,6 +58,10 @@ const userAuth = useUserAuth()
 const router = useRouter()
 const route = useRoute()
 
+// Methods
+/**
+ * Authenticate and login user.
+ */
 function loginUser () {
   AuthenticationService.login({
     email: email.value,
@@ -65,14 +69,20 @@ function loginUser () {
   })
   .then(response => {
     successMessage.value = response?.data?.message
-    logUser(response?.data?.user)
+    saveUser(response?.data?.user)
   })
   .catch(error => {
     errorMessage.value = error?.response?.data?.message
   })
 }
 
-function logUser ({ email, name }) {
+/**
+  * Saves authenticate users credentials.
+  * @param {Object} credentials - User data.
+  * @param {String} credentials.name - User name.
+  * @param {String} credentials.email - User email.
+ */
+function saveUser ({ email, name }) {
   userAuth.user = { email, name }
   chart.setInitialDate()
   

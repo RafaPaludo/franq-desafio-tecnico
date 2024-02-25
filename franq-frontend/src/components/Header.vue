@@ -46,6 +46,7 @@
 import Logo from '@/assets/logo-franq.svg'
 import { useUserAuth } from '@/stores/user'
 
+// Data
 const userAuth = useUserAuth()
 </script>
 

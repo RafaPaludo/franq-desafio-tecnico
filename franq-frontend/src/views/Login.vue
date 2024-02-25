@@ -47,6 +47,7 @@ import LoginSignUp from '@/components/LoginSingUp.vue'
 import LoginSingIn from '@/components/LoginSingIn.vue'
 import Logo from '@/assets/logo-franq.svg'
 
+// Data
 const tab = ref(null)
 </script>
 

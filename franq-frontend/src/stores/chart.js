@@ -17,6 +17,9 @@ export const useChart = defineStore('chart', () => {
     initialData.value = JSON.parse(localStorage.getItem('initialData'))
   }
 
+  /**
+   * Instantiate current system hour.
+   */
   function setInitialDate () {
     initialData.value = new Date().getHours()
   }

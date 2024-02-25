@@ -20,6 +20,7 @@
 </template>
 
 <script setup>
+// Props
 const props = defineProps({
   quotationList: {
     type: Object,

@@ -65,6 +65,7 @@ import { useRouter, useRoute } from 'vue-router'
 import { useUserAuth } from '@/stores/user'
 import AuthenticationService from '@/services/AuthenticationService'
 
+// Data
 const valid = ref(false)
 const name = ref('')
 const password = ref('')
@@ -88,7 +89,6 @@ const emailRules = [
     return 'Informe um e-mail válido.'
   }
 ]
-
 const passwordRules = [
   value => {
     if (value) return true
@@ -101,13 +101,13 @@ const passwordRules = [
     return 'Senha precisa conter ao menos 6 characters.'
   }
 ]
-
 const errorMessage = ref('')
 const successMessage = ref('')
 const userAuth = useUserAuth()
 const router = useRouter()
 const route = useRoute()
 
+// Methods
 /*
   This function register a new user in the backend.
 */ 
@@ -119,14 +119,20 @@ function registerUser () {
   })
   .then(response => {
     successMessage.value = response?.data?.message
-    logUser(response?.data?.user)
+    saveUser(response?.data?.user)
   })
   .catch(error => {
     errorMessage.value = error?.response?.data?.message
   })
 }
 
-function logUser ({ email, name }) {
+/**
+  * Saves authenticate users credentials.
+  * @param {Object} credentials - User data.
+  * @param {String} credentials.name - User name.
+  * @param {String} credentials.email - User email.
+ */
+function saveUser ({ email, name }) {
   userAuth.user = { email, name }
 
   setTimeout(() => {

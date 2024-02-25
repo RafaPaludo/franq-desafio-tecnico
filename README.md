@@ -1,11 +1,12 @@
 # Desafio técnico Franq
 
-Este é um desafio técnico que tem por finalidade testar minhas habilidades com programação frontend. 
+Este é um desafio técnico que tem por finalidade testar minhas habilidades com programação frontend.
 
 O desafio consiste na criação de uma página de login e outra página restrita, esta contendo informações de cotações de ativos na bolsa de valores, utilizando a api [https://hgbrasil.com/status/finance/](https://hgbrasil.com/status/finance/)
 
-Este projeto é um monorepositório, composto por uma aplicação frontend utilizando Vue 3, Vuetify e Apexcharts e um [servidor de submodulo utilizando Nodejs e Express](https://github.com/RafaPaludo/franq-desafio-tecnico-server/tree/master). 
+Este projeto é um monorepositório, composto por uma aplicação frontend utilizando Vue 3, Vuetify e Apexcharts e um [servidor de submodulo utilizando Nodejs e Express](https://github.com/RafaPaludo/franq-desafio-tecnico-server/tree/master).
 
+Você pode acessar a aplicação rodando [aqui](http://35.173.236.69:3000/) ou seguir com algum métido de instalação definido abaixo.
 
 ## Escolha um método de instalação
 - [Instalação Local com Node.js](#instalação-local-com-nodejs)
